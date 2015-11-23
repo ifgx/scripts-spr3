@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 /**
- * @author Adrien D & Baptiste V
+ * @author Adrien D
  * @version 1.0
  */
 
