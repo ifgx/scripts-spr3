@@ -447,20 +447,33 @@ public class GameController : MonoBehaviour {
 		Application.LoadLevel ("GameScene");
 	}
 
+	/**
+	 * Quits the game directly
+	 */
 	public void Quit() {
 		//Debug.Log ("QUIT");
 		Application.Quit ();
 	}
 
+	/**
+	 * Return to the main menu scene
+	 */
 	public void ReturnToMainMenu() {
 		Application.LoadLevel ("LoadingScene");
 	}
 
+	/**
+	 * Trigger the next level scene
+	 */
 	public void NextLevel(){
 		GameModel.ActualLevelId++;
 		Application.LoadLevel ("NextLevelScene");
 	}
 
+	/**
+	 * Resume the game scene
+	 * for test purposes
+	 */
 	public void Resume(){
 		pausedMenu.SetActive(false);
 		paused = false;

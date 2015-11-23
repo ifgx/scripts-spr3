@@ -2,34 +2,59 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/**
+ * @author Adrien D
+ * @version 1.0
+ */
+
+/**
+ * Controller used to manage tutorials screens
+ */
 public class TutorialManagerController : MonoBehaviour {
 
+	/**
+	 * Tutorial states
+	 */
 	public enum TutorialState {
 		FREEZE,
 		NORMAL,
 	};
 
+	/**
+	 * The global list of tutorials
+	 */
 	public static List<Tutorial> tutorials;
 
+	/**
+	 * the time scale on FREEZE mode
+	 */
 	private float freezeTimeScale = 0.1f;
 
+	/**
+	 * Max timers
+	 */
 	private float maxTimerFreeze = 3.0f;
 	private float maxTimerNormal = 3.0f;
 
+	/**
+	 * Timers
+	 */
 	private float timerFreeze = 0.0f;
 	private float timerNormal = 0.0f;
 
-
-
+	/**
+	 * Game Objects
+	 */
 	private GameObject tutoUIPrefab;
 	private GameObject tutoUIInstance;
 
-	private bool lancerDone = false;
-	private bool dragonetDone = false;
 
 	private TutorialState state = TutorialState.NORMAL;
 
 	// Use this for initialization
+	/**
+	 * Initialization
+	 */
 	void Start () {
 		maxTimerFreeze *= freezeTimeScale;
 
@@ -39,6 +64,9 @@ public class TutorialManagerController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+	/**
+	 * Update according to the state
+	 */
 	void Update () {
 		if (state == TutorialState.NORMAL)
 			normal ();
@@ -46,6 +74,9 @@ public class TutorialManagerController : MonoBehaviour {
 			freeze ();
 	}
 
+	/**
+	 * The update method when we are on FREEZE mode
+	 */
 	private void freeze(){
 		timerFreeze += Time.deltaTime;
 		//Debug.Log (timerFreeze);
@@ -58,6 +89,9 @@ public class TutorialManagerController : MonoBehaviour {
 		}
 	}
 
+	/**
+	 * The update method when we are on NORMAL mode
+	 */
 	private void normal(){
 		timerNormal += Time.deltaTime;
 
@@ -69,24 +103,13 @@ public class TutorialManagerController : MonoBehaviour {
 			}
 		}
 
-		/*
-		NPC npc = GameModel.getNearestNPC ();
-		if (npc != null && npc.GetPosition().z-GameModel.HerosInGame[0].GetPosition().z < distTrigger) {
-			string npcType = npc.GetType().ToString();
-			if (npcType.Contains("Lancer") && !lancerDone){
-
-				lancerDone = true;
-			}else if (npcType.Contains("Dragonet") && !dragonetDone) {
-				launchFreeze("Si les meilleurs partent en premier, pourquoi suis-je toujours en vie ?","xhamster");
-				dragonetDone = true;
-			}
-
-
-		}
-		*/
+		
 		
 	}
 
+	/**
+	 * Launch the FREEZE mode, adding the tutorial on te screen
+	 */
 	private void launchFreeze(string text, string imagePath) {
 		tutoUIInstance = Instantiate(tutoUIPrefab) as GameObject;
 		TutorialUIManager uiMan = tutoUIInstance.GetComponent<TutorialUIManager> ();
@@ -100,6 +123,9 @@ public class TutorialManagerController : MonoBehaviour {
 
 	}
 	
+	/**
+	 * Reset time scale when destroyed to avoid errors
+	 */
 	void OnDestroy(){
 		Time.timeScale = 1.0f;
 	}

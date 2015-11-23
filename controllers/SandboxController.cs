@@ -2,8 +2,19 @@
 using System.Collections;
 using Game;
 
+/**
+ * @author Adrien D
+ * @version 1.0
+ */
+
+/**
+ * Controller of the sandbox
+ */
 public class SandboxController : MonoBehaviour {
 
+	/**
+	 * GameObjects
+	 */
 	private GameObject terrain;
 	
 	private GameObject hud;
@@ -39,7 +50,9 @@ public class SandboxController : MonoBehaviour {
 	
 	private HandSide handSide;
 
-
+	/**
+	 * Load all resources
+	 */
 	void Awake(){
 		terrain = Resources.Load ("prefabs/Terrain") as GameObject;
 		
@@ -64,7 +77,11 @@ public class SandboxController : MonoBehaviour {
 		
 		leapPrefab = Resources.Load("prefabs/leapmotion/LeapMotionScene") as GameObject;
 	}
+
 	// Use this for initialization
+	/**
+	 * Initialize all values
+	 */
 	void Start () {
 		GameModel.initSandbox ();
 
@@ -109,6 +126,9 @@ public class SandboxController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+	/**
+	 * Main update loop
+	 */
 	void Update () {
 
 		Hero hero = GameModel.HerosInGame [0];
@@ -134,6 +154,9 @@ public class SandboxController : MonoBehaviour {
 		}
 	}
 
+	/**
+	 * Add an item (ennemy or potion) at a cartain distance in front of us
+	 */
 	public void popItem(string type){
 		GameObject go = null;
 		
@@ -164,19 +187,31 @@ public class SandboxController : MonoBehaviour {
 		}
 	}
 
+	/**
+	 * Reset life bar at its max value
+	 */
 	public void resetLife() {
 		GameModel.HerosInGame[0].HealthPoint = GameModel.HerosInGame[0].MaxHealthPoint;
 	}
 
+	/**
+	 * Reset power bar at its max value
+	 */
 	public void resetPower() {
 		GameModel.HerosInGame [0].PowerQuantity = GameModel.HerosInGame [0].MaxPowerQuantity;
 	}
 
+	/**
+	 * Reset both life and power bar at its max value
+	 */
 	public void resetBoth() {
 		resetLife ();
 		resetPower ();
 	}
 
+	/**
+	 * Resume timeScale
+	 */
 	public void Resume()
 	{
 		Time.timeScale = 1.0f;
