@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Autogeneration the terrain while the hero runs on it
+ */
 public class TerrainAutoGeneration : MonoBehaviour {
 
 
@@ -8,7 +11,11 @@ public class TerrainAutoGeneration : MonoBehaviour {
 	private float middleTerrainZ;
 	private float terrainLength;
 	private float terrainPosZ;
+
 	// Use this for initialization
+	/**
+	 * Initialization
+	 */
 	void Start () {
 		Terrain terrain = this.gameObject.GetComponent<Terrain>();
 		terrainPosZ = terrain.transform.position.z;
@@ -17,7 +24,10 @@ public class TerrainAutoGeneration : MonoBehaviour {
 		//Debug.Log (middleTerrainZ);
 	}
 	
-	// Update is called once per frame
+	
+	/**
+	 * Update is called once per frame
+	 */
 	void Update () {
 		Hero hero = GameModel.HerosInGame [0];
 
