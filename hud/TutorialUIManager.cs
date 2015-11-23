@@ -2,15 +2,24 @@
 using UnityEngine.UI;
 using System.Collections;
 
+/**
+ * @author Adrien D & Baptiste V
+ * @version 1.0
+ */
+
+ /**
+  * Manipulator of a tutorial UI
+  */ 
 public class TutorialUIManager : MonoBehaviour {
 
 	private Text text;
 	private Image image;
 
-//	private float fadeTimer = 0.0f;
-//	private float fadeTimerMax = 0.3f;
 
 	// Use this for initialization
+	/**
+	 * Initialization
+	 */
 	void Awake () {
 		text = transform.GetComponentInChildren<Text>();
 		Debug.Log ("text : " + text);
@@ -18,23 +27,16 @@ public class TutorialUIManager : MonoBehaviour {
 	}
 
 
-
-//	void Update(){
-//
-//		if (fadeTimer < fadeTimerMax) {
-//			Image panel = GetComponentInChildren<Image>();
-//			Color c = panel.color;
-//			Debug.Log ((fadeTimer / fadeTimerMax));
-//			c.a = (fadeTimer / fadeTimerMax);
-//		}
-//
-//		fadeTimer += Time.deltaTime;
-//	}
-
+	/**
+	 * Set the text of the tutorial
+	 */
 	public void setText(string newText){
 		text.text = newText;
 	}
 
+	/**
+	 * Set the image of the tutorial
+	 */
 	public void setImage(string imageName){
 		Sprite sprite = Resources.Load<Sprite>("helpImages/"+imageName) as Sprite;
 		Debug.Log ("helpImages/" + imageName);

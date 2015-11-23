@@ -3,6 +3,14 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.UI;
 
+/**
+ * @author Adrien D & Baptiste V
+ * @version 1.0
+ */
+
+/**
+ * Class made to update game HUD according to values
+ */
 public class HudMaster : MonoBehaviour {
 
     public enum HudType { Life, Special };
@@ -21,6 +29,9 @@ public class HudMaster : MonoBehaviour {
 	private float groundOnCam;
 
     // Use this for initialization
+    /**
+     * Initialization
+     */
     void Start () {
        // hudLife = GameObject.Find("hud_life");
        // hudSpecial = GameObject.Find("hud_special");
@@ -42,7 +53,10 @@ public class HudMaster : MonoBehaviour {
 
     }
 	
-	// Update is called once per frame
+	
+	/**
+	 * Update is called once per frame
+	 */
 	void Update () {
 	    if (shieldActivated) {
 
@@ -62,6 +76,7 @@ public class HudMaster : MonoBehaviour {
 	}
 
 	/**
+	 * Update life or power bar to a certain value
 	 * @param HudType _hudType Is it power HUD or Life HUD
 	 * @param float _levelPercent Number between 0 and 100 that will graphically sets the filling percentage of the gauje
 	 **/
@@ -84,6 +99,11 @@ public class HudMaster : MonoBehaviour {
         }
     }
 
+    /**
+     * Update XP bar to a certain value
+     * @param float xpPercent The XP percent from 0 to 100
+     * @param int level The level number
+     */
 	public void updateXP(float xpPercent, int level) {
 
 		hudXPBar.transform.localScale = new Vector3 (xpPercent / 100.0f, 1.0f, 1.0f);
@@ -94,6 +114,9 @@ public class HudMaster : MonoBehaviour {
 
 	}
 
+	/**
+	 * Getter Setter for the little shield to activate
+	 */
 	public bool ShieldActivated {
 		get {
 			return this.shieldActivated;
@@ -109,7 +132,10 @@ public class HudMaster : MonoBehaviour {
 		}
 	}
 	
-
+	/**
+	 * Sets shield position to the screen in function of a world position
+	 * @param Vector3 worldPosition
+	 */
 	public void WorldToShieldPosition (Vector3 worldPosition) {
 		//hudShield.transform. position = Camera.main.WorldToScreenPoint (worldPosition);
 		//Debug.Log ("screen : " + hudShield.transform.position);
