@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 55bc1ebaf690c974cb1450167af44b75
+timeCreated: 1447259593
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - file: {fileID: 2800000, guid: 2b2223e008029e9428c28e26d2768a00, type: 3}
+  - folder: {fileID: 2800000, guid: 1406bb3241f49524ab32e39637a85257, type: 3}
+  - back: {fileID: 2800000, guid: 69b8acf17a8bad542b36431b4fce6a3e, type: 3}
+  - drive: {fileID: 2800000, guid: 8184e77bea8cba04a8ab1685be171b58, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
