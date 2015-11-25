@@ -149,6 +149,14 @@ public abstract class NPC : Unit {
 		}
 	}
 
+	/**
+	* FR:
+	*	Fonction qui permet d'initialiser différents paramètres à la création du PNJ
+	* EN:
+	*	Function which permits us to initialise different parameter when the NPC is created
+	* @return Void
+	* @version 1.0
+	**/
 	void initNPC()
 	{
 		triggerAggroPrefab = Resources.Load("prefabs/npc/TriggerAggro") as GameObject;
@@ -172,6 +180,14 @@ public abstract class NPC : Unit {
 		initiated = true;
 	}
 
+	/**
+	* FR:
+	*	Fonction déclenché lorsque le héro est à porté d'attaque du PNJ
+	* EN:
+	*	Function started when the hero is under the NPC's attack range
+	* @return Void
+	* @version 1.0
+	**/
 	public virtual void UnderAttackRange(Hero target)
 	{
 		if(BlockingType != Blocking.FREE)
@@ -193,6 +209,14 @@ public abstract class NPC : Unit {
 		Attack(target);
 	}
 
+	/**
+	* FR:
+	*	Fonction déclenché lorsque le héro est à porté d'aggression du PNJ
+	* EN:
+	*	Function started when the hero is under the NPC's aggressive range
+	* @return Void
+	* @version 1.0
+	**/
 	public virtual void UnderAggroDistance(Hero target)
 	{
 		Run(Time.deltaTime);
@@ -465,6 +489,18 @@ public abstract class NPC : Unit {
 		}
 	}
 
+	/**
+	* FR:
+	* Getter/Setter de successiveBlocked
+	* EN:
+	* Getter/Setter of successiveBlocked
+	* @return 
+	* FR:
+	*	Retourne un int pour le getter et void pour le setter
+	* EN:
+	*	Return an int for the getter and void for the setter
+	* @version 1.0
+	**/
 	public int SuccessiveBlocked{
 		get {
 			return this.successiveBlocked;
@@ -474,6 +510,18 @@ public abstract class NPC : Unit {
 		}
 	}
 
+	/**
+	* FR:
+	* Getter/Setter de nbAttack
+	* EN:
+	* Getter/Setter of nbAttack
+	* @return 
+	* FR:
+	*	Retourne un int pour le getter et void pour le setter
+	* EN:
+	*	Return an int for the getter and void for the setter
+	* @version 1.0
+	**/
 	public int NbAttack{
 		get {
 			return this.nbAttack;
@@ -483,6 +531,14 @@ public abstract class NPC : Unit {
 		}
 	}
 
+	/**
+	* FR:
+	* Fonction permettant compter le nombre de blocage successif
+	* EN:
+	* Function which permit to count the numbre of successive blocage
+	* @return Return a void
+	* @version 1.0
+	**/
 	public void Blocked()
 	{
 		//Debug.LogWarning("Allez blockéééé");
@@ -490,10 +546,26 @@ public abstract class NPC : Unit {
 		//Debug.LogWarning(SuccessiveBlocked);
 	}
 
+	/**
+	* FR:
+	* Cette fonction permet de retirer le PNJ du gameController
+	* EN:
+	* Permits to remove the NPC from the Game Controler
+	* @return Return void
+	* @version 1.0
+	**/
 	void OnDestroy(){
 		GameModel.NPCsInGame.Remove (this);
 	}
 
+	/**
+	* FR:
+	* Cette fonction permet de jouer le son d'attaque
+	* EN:
+	* Permits to play the attack sound
+	* @return Return void
+	* @version 1.0
+	**/
 	public void PlayAttackSound(){
 		if(audioInit)
 		{

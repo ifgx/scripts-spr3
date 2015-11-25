@@ -38,6 +38,9 @@ public abstract class Dragonet : NPC {
 		
 	}
 
+	/**
+	* {@inheritDoc}
+	**/
 	public override void UnderAttackRange(Hero target)
 	{
 		Attack(target);
@@ -49,6 +52,9 @@ public abstract class Dragonet : NPC {
 		}
 	}
 
+	/**
+	* {@inheritDoc}
+	**/
 	public override void Attack(Hero target)
 	{
 		//CurrentAttackSpeed
@@ -80,12 +86,27 @@ public abstract class Dragonet : NPC {
 		
 	}
 
+	/**
+	* FR:
+	* Cette fonction permet de suivre le héro ciblé
+	* EN:
+	* This function permit to follow the targeted hero
+	* @param hero
+	* @version 1.0
+	**/
 	public void FollowPlayer(Hero target)
 	{
 		Transform character = target.transform;
 		transform.position = new Vector3(transform.position.x,transform.position.y,character.position.z + attackRange);
 	}
 
+	/**
+	* FR:
+	* Cette fonction permet de bouger pour attaquer autre part
+	* EN:
+	* This function permit to move to attack at another place
+	* @version 1.0
+	**/
 	public void MoveToAttack()
 	{
 		Vector3 moveToAttack = new Vector3(Random.Range(-2.0F, 2.0F),Random.Range(0.0F, 2.0F),transform.position.z);

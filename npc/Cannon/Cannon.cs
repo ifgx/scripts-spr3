@@ -56,6 +56,9 @@ public class Cannon : NPC {
 
 	}
 
+	/**
+	* {@inheritDoc}
+	**/
 	public override void Attack(Hero target)
 	{
 		//Debug.Log("cannon try to attack");

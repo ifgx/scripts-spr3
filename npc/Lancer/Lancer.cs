@@ -44,6 +44,9 @@ public abstract class Lancer : NPC {
 	
 	}
 
+	/**
+	* {@inheritDoc}
+	**/
 	public override void Attack(Hero target)
 	{
 		if(NbAttack == 0 )

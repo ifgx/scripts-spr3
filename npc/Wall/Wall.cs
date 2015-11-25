@@ -52,6 +52,9 @@ public class Wall : NPC {
 		base.offsetAttackTime = 5.0f;
 	}
 
+	/**
+	* {@inheritDoc}
+	**/
 	public override void Attack(Hero target)
 	{
 

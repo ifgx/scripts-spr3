@@ -45,6 +45,9 @@ public class Assassin : NPC {
 
 	}
 
+	/**
+	* {@inheritDoc}
+	**/
 	public override void Attack(Hero target)
 	{
 		target.LostHP(this.Damage);
