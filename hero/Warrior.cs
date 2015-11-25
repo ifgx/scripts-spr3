@@ -59,9 +59,17 @@ public class Warrior : Hero {
 		}
 	}
 
+	/**
+	* FR:
+	* Cette fonction permet au héro d'infliger des dégâts en fonction de sa barre de puissance
+	* EN:
+	* Permits to the hero to do damage according to his power
+	* @return Return float
+	* @version 1.0
+	**/
 	public override float Damage {
 		get {
-			float coeff = (2 - 1 + 1) * (PowerQuantity / MaxPowerQuantity) + 1;
+			float coeff = (2 - 1) * (PowerQuantity / MaxPowerQuantity) + 1;
 			return this.damage * coeff;
 		}
 		set {
@@ -115,11 +123,17 @@ public class Warrior : Hero {
 		}
 	}
 
+	/**
+	* {@inheritDoc}
+	**/
 	public override void PreAttack()
 	{
 
 	}
 
+	/**
+	* {@inheritDoc}
+	**/
 	public override void PostAttack()
 	{
 		PowerQuantity /= 2;

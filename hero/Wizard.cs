@@ -36,7 +36,10 @@ public class Wizard : Hero {
 		:base(5.0f, 0.0f,100.0f,"baton",1000.0f, 10.0f, 10.0f, 1100.0f, 8.0f, 3.0f, "distance", "anonymous"){
 		
 	}
-
+	
+	/**
+	* {@inheritDoc}
+	**/
 	public override void HasKilled(float XP)
 	{
 		GiveXP(XP);

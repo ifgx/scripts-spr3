@@ -185,6 +185,13 @@ public abstract class Hero : Unit {
 		XpQuantity += XP;
 	}
 
+	/**
+	* FR:
+	*	Actions à effectuer lorsque le héro à tué un PNJ
+	* EN:
+	*	Actions to do when the hero has killed a NPC
+	* @version 1.0
+	**/
 	public virtual void HasKilled(float XP)
 	{
 		GiveXP(XP);
@@ -622,6 +629,14 @@ public abstract class Hero : Unit {
 
 	}
 
+	/**
+	* FR:
+	* Cette fonction permet au héro de régénérer sa source de pouvoir
+	* EN:
+	* Permits to the hero to refresh is power source
+	* @return Return void
+	* @version 1.0
+	**/
 	public void RegenPower()
 	{
 		if(PowerQuantity + PowerRefresh < MaxPowerQuantity)
@@ -635,10 +650,27 @@ public abstract class Hero : Unit {
 		lastRegenPower = Time.time;
 	}
 
+
+	/**
+	* FR:
+	* Cette fonction permet de retirer le héro du gameController
+	* EN:
+	* Permits to remove the hero from the Game Controler
+	* @return Return void
+	* @version 1.0
+	**/
 	public void OnDestroy(){
 		GameModel.HerosInGame.Remove (this);
 	}
 
+	/**
+	* FR:
+	* Cette fonction permet au héro de déclencher des collisions
+	* EN:
+	* Permits to the hero to start collisions
+	* @return Return void
+	* @version 1.0
+	**/
 	void OnTriggerEnter(Collider hit)
 	{
 		Debug.LogWarning("COLLISION HERO "+hit);
@@ -676,6 +708,14 @@ public abstract class Hero : Unit {
 		}
 	}
 
+	/**
+	* FR:
+	* Cette fonction permet de démarrer l'animation de sang lorsque le héro est blessé
+	* EN:
+	* Permits to start the blood animation when the hero is hurted
+	* @return Return void
+	* @version 1.0
+	**/
 	public void PlayBloodAnimation(){
 		//Debug.Log ("BLOODY");
 		Animator anim = Camera.main.GetComponent<Animator>();
@@ -683,17 +723,41 @@ public abstract class Hero : Unit {
 		anim.cullingMode = AnimatorCullingMode.AlwaysAnimate;
 	}
 
+	/**
+	* FR:
+	* Cette fonction permet au héro de devenir invincible
+	* EN:
+	* Permits to the hero to be invincible
+	* @return Return void
+	* @version 1.0
+	**/
 	public void makeInvicible(float time)
 	{
 		invicibleTime = Time.time + time;
 		isInvicible = true;
 	}
 
+	/**
+	* FR:
+	* Cette fonction permet de d'effectuer certaines choses avant qu'une attaque se produise.
+	* EN:
+	* Permits to do some things before an attack
+	* @return Return void
+	* @version 1.0
+	**/
 	public virtual void PreAttack()
 	{
 		
 	}
 
+	/**
+	* FR:
+	* Cette fonction permet de d'effectuer certaines choses après qu'une attaque se produise.
+	* EN:
+	* Permits to do some things after an attack
+	* @return Return void
+	* @version 1.0
+	**/
 	public virtual void PostAttack()
 	{
 		
