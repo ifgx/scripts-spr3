@@ -21,6 +21,9 @@ public class FireballCollision : MonoBehaviour {
 		}
 	}
 
+	/**
+	 * Destroy the fireball on collide with somthing
+	 */
 	void onTriggerEnter(Collider col)
 	{
 		Debug.LogError("** FIRE Fireball Trigger with : "+col);

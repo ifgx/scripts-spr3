@@ -49,6 +49,10 @@ public class WarningLimit : MonoBehaviour {
 		}
 	}
 
+	/**
+	 * enables the visual clue that the left/right/top limit is exceeded
+	 * time is set to 10 frames showing the highlighted panel
+	 */
 	public void showLimit()
 	{
 		planeRenderer.enabled = true;
