@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * @author Baptiste Valthier
+ * @see similar class : DetectedLeapSandbox which has a SandboxController slot instead of a GameController slot.
+ */
 public class DetectedLeapScript : MonoBehaviour {
 
 	public Game.GameController gc;
@@ -15,6 +19,10 @@ public class DetectedLeapScript : MonoBehaviour {
 	
 	}
 
+	/**
+	 * @author Baptiste Valthier
+	 * hides the leap canvas (referenced by the slot gc (gamecontroller)) 
+	 */
 	public void IgnoreLeapNotConnected()
 	{
 		this.gameObject.GetComponent<Canvas>().enabled = false;

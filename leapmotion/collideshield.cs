@@ -13,6 +13,9 @@ public class collideshield : MonoBehaviour {
 	
 	}
 
+	/**
+	 * set hero defense mode on when the shield collides
+	 **/
 	void OnTriggerEnter(Collider other)
 	{
 		//Debug.Log("colli shield sur: "+other.ToString() + " tag: "+other.gameObject.tag);
